@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "582255720970",
+    "firebase_url": "https://pam-iot.firebaseio.com",
+    "project_id": "pam-iot",
+    "storage_bucket": "pam-iot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:582255720970:android:ed614fc6de6cfcfd04fdf3",
+        "android_client_info": {
+          "package_name": "com.example.pam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "582255720970-pp412ke52dl8ngacoo4sj07o6gvrbb15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACgZZRuWp6a4RPELlq8TtZ-HK9mo2Nl-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "582255720970-pp412ke52dl8ngacoo4sj07o6gvrbb15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
