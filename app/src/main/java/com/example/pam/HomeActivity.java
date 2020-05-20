@@ -84,7 +84,6 @@ public class HomeActivity extends AppCompatActivity {
                                              }
                                          });
 
-                Log.v("caca", "urgence = "+ urgence);
                 adapter = new FirestoreRecyclerAdapter<Data, ProductsViewHolder>(options) {
                     @NonNull
                     @Override
@@ -120,6 +119,8 @@ public class HomeActivity extends AppCompatActivity {
 
         }
 
+        //SMS
+
     @SuppressLint("UnlocalizedSms")
     public void onSend(View view) {
         if (checkPermission(Manifest.permission.SEND_SMS)){
@@ -132,7 +133,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    private static class ProductsViewHolder extends RecyclerView.ViewHolder {
+    static class ProductsViewHolder extends RecyclerView.ViewHolder {
         private TextView list_name;
         private TextView list_value;
 
