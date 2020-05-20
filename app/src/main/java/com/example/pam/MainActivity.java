@@ -17,7 +17,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -104,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                             } else {
                                 uid = mFirebaseAuth.getCurrentUser().getUid();
                                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                                intent.putExtra("uid", uid);
                                 startActivity(intent);
                                 Map<String, String> userMap = new HashMap<>();
                                 userMap.put("email", email);

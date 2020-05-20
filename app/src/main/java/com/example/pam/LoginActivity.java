@@ -23,7 +23,6 @@
         TextView tvSignUp;
         FirebaseAuth mFirebaseAuth;
         private FirebaseAuth.AuthStateListener mAuthStateListener;
-        String uid;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +74,7 @@
                                     Toast.makeText(LoginActivity.this,"Une erreur est surevenue, réessayé",Toast.LENGTH_SHORT).show();
                                 }
                                 else{
-                                    uid = mFirebaseAuth.getCurrentUser().getUid();
-                                    Intent intToHome = new Intent(LoginActivity.this,HomeActivity.class);
-                                    intToHome.putExtra("uid", uid);
+                                    Intent intToHome = new Intent(LoginActivity.this,HomeActivity.class);;
                                     startActivity(intToHome);
 
                                 }

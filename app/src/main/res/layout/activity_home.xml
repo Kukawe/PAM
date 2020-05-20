@@ -10,7 +10,7 @@
         android:id="@+id/btn_deconnexion"
         android:layout_width="221dp"
         android:layout_height="53dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="36dp"
         android:background="@drawable/button"
         android:text="Se déconnecter"
@@ -18,16 +18,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firestoreList" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMedecin"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/firestoreList"
-        android:layout_width="407dp"
-        android:layout_height="617dp"
+        android:layout_width="412dp"
+        android:layout_height="464dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnMedecin"
+        android:layout_width="220dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/button"
+        android:text="Prévenir le médecin"
+        android:textColor="@color/blanc"
+        android:onClick="onSend"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firestoreList"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
