@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#5A000E</color>
-    <color name="colorPrimaryDark">#5A000E</color>
+    <color name="colorPrimary">#CDB0E2</color>
+    <color name="colorPrimaryDark">#CDB0E2</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="bordeaux">#5A000E</color>
+    <color name="bleucyan">#A6D8DF</color>
     <color name="blanc">#FFFFFF</color>
+    <color name="violet">#CDB0E2</color>
+    <color name="bleu">#9EC2E2</color>
+    <color name="roseblanc">#FBDDE5</color>
+    <color name="rose">#FFB5CC</color>
+
 
 </resources>
