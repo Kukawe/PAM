@@ -39,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
     FirestoreRecyclerAdapter adapter;
     String nom;
     String prenom;
+    String urgence;
     int SEND_SMS_PERMISSION_REQUEST_CODE = 1;
 
     @Override
@@ -77,6 +78,7 @@ public class HomeActivity extends AppCompatActivity {
                                                      assert doc != null;
                                                      nom = (String) doc.get("firstName");
                                                      prenom = (String) doc.get("lastName");
+                                                     urgence = (String) doc.get("urgenceNumber");
                                                  }
                                              }
                                          });
@@ -121,7 +123,7 @@ public class HomeActivity extends AppCompatActivity {
     public void onSend(View view) {
         if (checkPermission(Manifest.permission.SEND_SMS)){
             SmsManager smg = SmsManager.getDefault();
-            smg.sendTextMessage("0610287782", null,"Le patient "+ nom + prenom + " a besoin d'aide!", null,null);
+            smg.sendTextMessage(urgence, null,"Le patient "+ nom + " "+ prenom + " a besoin d'aide!", null,null);
             Toast.makeText(this, "Message envoyé!", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(this, "Permission refusée!", Toast.LENGTH_SHORT).show();

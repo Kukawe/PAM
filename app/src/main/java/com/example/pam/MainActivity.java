@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    EditText emailId, password, birthDay, nom, prenom, phone, status;
+    EditText emailId, password, birthDay, nom, prenom, phone, status, urgence;
     Button btnSignUp;
     TextView tvSignIn;
     FirebaseAuth mFirebaseAuth;
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         status = findViewById(R.id.editTextStatus);
         btnSignUp = findViewById(R.id.btnInscription);
         tvSignIn = findViewById(R.id.textView_dejacompte);
+        urgence = findViewById(R.id.editTextUrgence);
 
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 final String prnm = prenom.getText().toString();
                 final String tel = phone.getText().toString();
                 final String sts = status.getText().toString();
+                final String urg = urgence.getText().toString();
 
                 if (email.isEmpty()) {
 
@@ -91,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
                     status.setError("Veuillez entrer votre status");
                     status.requestFocus();
 
+                } else if (urg.isEmpty()) {
+
+                    urgence.setError("Veuillez entrer votre numéro d'urgence");
+                    urgence.requestFocus();
+
                 } else if (email.isEmpty() && pwd.isEmpty() && pwd.isEmpty() && birth.isEmpty() && nm.isEmpty() && prnm.isEmpty() && tel.isEmpty() && sts.isEmpty()) {
 
                     Toast.makeText(MainActivity.this, "Les champs sont vides", Toast.LENGTH_SHORT).show();
@@ -111,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                                 userMap.put("phoneNumber", tel);
                                 userMap.put("status", sts);
                                 userMap.put("birthDate", birth);
+                                userMap.put("urgenceNumber", urg);
 
                                 mFirestore.collection("Users").document(uid).set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
