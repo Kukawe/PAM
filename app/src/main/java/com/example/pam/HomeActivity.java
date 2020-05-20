@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
     FirestoreRecyclerAdapter adapter;
     String nom;
     String prenom;
-    String urgence;
+    String urgence = "0610287782";
     int SEND_SMS_PERMISSION_REQUEST_CODE = 1;
 
     @Override
@@ -83,7 +84,7 @@ public class HomeActivity extends AppCompatActivity {
                                              }
                                          });
 
-
+                Log.v("caca", "urgence = "+ urgence);
                 adapter = new FirestoreRecyclerAdapter<Data, ProductsViewHolder>(options) {
                     @NonNull
                     @Override
