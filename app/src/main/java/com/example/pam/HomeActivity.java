@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,10 +33,8 @@ import com.google.firebase.firestore.Query;
 public class HomeActivity extends AppCompatActivity {
     Button btnLogout;
     Button btnMedecin;
-    FirebaseAuth mFirebaseAuth;
     RecyclerView mFirestoreList;
     FirebaseFirestore firebaseFirestore;
-    FirebaseAuth.AuthStateListener mAuthStateListener;
     String uid;
     FirestoreRecyclerAdapter adapter;
     String nom;
@@ -76,7 +74,7 @@ public class HomeActivity extends AppCompatActivity {
                                              public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                                  if (task.isSuccessful()) {
                                                      DocumentSnapshot doc = task.getResult();
-                                                     StringBuilder fields = new StringBuilder("");
+                                                     assert doc != null;
                                                      nom = (String) doc.get("firstName");
                                                      prenom = (String) doc.get("lastName");
                                                  }
@@ -92,6 +90,7 @@ public class HomeActivity extends AppCompatActivity {
                         return new ProductsViewHolder(view);
                     }
 
+                    @SuppressLint("SetTextI18n")
                     @Override
                     protected void onBindViewHolder(@NonNull ProductsViewHolder holder, int position, @NonNull Data model) {
                         holder.list_name.setText(model.getName());
@@ -109,7 +108,7 @@ public class HomeActivity extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mFirebaseAuth.getInstance().signOut();
+                FirebaseAuth.getInstance().signOut();
                 Intent inToMain = new Intent(HomeActivity.this, LoginActivity.class);
                 startActivity(inToMain);
             }
@@ -118,6 +117,7 @@ public class HomeActivity extends AppCompatActivity {
 
         }
 
+    @SuppressLint("UnlocalizedSms")
     public void onSend(View view) {
         if (checkPermission(Manifest.permission.SEND_SMS)){
             SmsManager smg = SmsManager.getDefault();
@@ -129,11 +129,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    private class ProductsViewHolder extends RecyclerView.ViewHolder {
+    private static class ProductsViewHolder extends RecyclerView.ViewHolder {
         private TextView list_name;
         private TextView list_value;
 
-        public ProductsViewHolder(@NonNull View itemView) {
+        ProductsViewHolder(@NonNull View itemView) {
             super(itemView);
 
             list_name = itemView.findViewById(R.id.list_name);
